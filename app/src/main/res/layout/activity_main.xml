@@ -20,6 +20,7 @@
             android:layout_height="80dp"
             android:text="Handwrite Translate"
             android:autoSizeTextType="uniform"
+            android:textColor="@color/black"
             android:gravity="center"
             android:layout_weight="4"
             android:drawableLeft="@drawable/logo"/>
@@ -88,6 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:autoSizeTextType="uniform"
+                android:textColor="@color/black"
                 android:layout_margin="10dp"
                 android:text="Recognized Text:"/>
 
@@ -97,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
+                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <Button
@@ -115,6 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:autoSizeTextType="uniform"
+                android:textColor="@color/black"
                 android:layout_margin="10dp"
                 android:text="Translated Text:"/>
 
@@ -124,6 +128,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="10dp"
+                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         </LinearLayout>

@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] cameraPermissions;
     private String[] storagePermissions;
     private TextRecognizer textRecognizer;
+    private Translator translator;
     private ProgressBar progressBar;
     private Button btnTranslate;
     private EditText editText;
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                             .setSourceLanguage("en")
                             .build();
 
-                    Translator translator = Translation.getClient(options);
+                    translator = Translation.getClient(options);
 
                     String sourceText = recognizedText.getText().toString();
 
@@ -133,11 +134,16 @@ public class MainActivity extends AppCompatActivity {
                     params.addRule(RelativeLayout.CENTER_IN_PARENT);
                     layout.addView(progressBar, params);
                     progressBar.setVisibility(View.VISIBLE);
+                    btnTranslate.setEnabled(false);
 
                     translator.downloadModelIfNeeded().addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
+
                             progressBar.setVisibility(View.GONE);
+                            btnTranslate.setEnabled(true);
+                            translateText(sourceText);
+
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -145,19 +151,6 @@ public class MainActivity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                         }
                     });
-
-                    Task<String> result = translator.translate(sourceText)
-                            .addOnSuccessListener(new OnSuccessListener<String>() {
-                                @Override
-                                public void onSuccess(String s) {
-                                    editText.setText(s);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(MainActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
-                                }
-                            });
                 }
             }
         });
@@ -199,6 +192,22 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "recognizeTextFromImage: ",e);
             Toast.makeText(this, "Failed preparing image due to "+e.getMessage(),Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void translateText(String sourceText){
+        Task<String> result = translator.translate(sourceText)
+                .addOnSuccessListener(new OnSuccessListener<String>() {
+                    @Override
+                    public void onSuccess(String s) {
+                        editText.setText(s);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(MainActivity.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Wait for the Translator Model", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
     private void showInputImageDialog(){
         PopupMenu popupMenu = new PopupMenu(this, inputImage);
