@@ -9,3 +9,5 @@ Dibuat dan dikembangkan oleh:
 # Handwrite Translate
 
 HandwriteTranslate adalah aplikasi penerjemahan teks berupa tulisan tangan ataupun lainnya. Pengguna dapat menangkap teks apa saja dan akan muncul terjemahan dari teks yang ditangkap. (untuk versi ini hanya dapat menerjemahkan dari Inggris -> Bahasa Indonesia)
+
+APK: https://its.id/m/PPBKelompok10APK
