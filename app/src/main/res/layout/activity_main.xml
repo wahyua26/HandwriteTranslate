@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/lightgrey"
     tools:context=".MainActivity"
     >
 
@@ -15,21 +16,21 @@
         >
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="HandwriteTranslate"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:text="Handwrite Translate"
+            android:autoSizeTextType="uniform"
             android:gravity="center"
+            android:layout_weight="4"
             android:drawableLeft="@drawable/logo"/>
 
         <ImageButton
             android:id="@+id/btnAbout"
-            android:text=""
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:src="@drawable/baseline_help_24"
-            android:background="@color/white"
+            android:layout_weight="1"
             android:layout_gravity="center"
             />
 
@@ -85,7 +86,8 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:autoSizeTextType="uniform"
                 android:layout_margin="10dp"
                 android:text="Recognized Text:"/>
 
@@ -93,7 +95,7 @@
                 android:id="@+id/etRecognizedText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:textSize="20sp"
                 android:layout_margin="10dp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -111,7 +113,8 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:autoSizeTextType="uniform"
                 android:layout_margin="10dp"
                 android:text="Translated Text:"/>
 
@@ -119,7 +122,7 @@
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:textSize="20sp"
                 android:layout_margin="10dp"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
